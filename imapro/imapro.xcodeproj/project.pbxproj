@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FE46B4F217B790D900828F4E /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = FE46B4F117B790D900828F4E /* Model.m */; };
+		FE46B4F517B79D5A00828F4E /* FileDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE46B4F417B79D5A00828F4E /* FileDialogController.m */; };
 		FEF4F9F617B7658B00AAAC63 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF4F9F517B7658B00AAAC63 /* Cocoa.framework */; };
 		FEF4FA0017B7658B00AAAC63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEF4F9FE17B7658B00AAAC63 /* InfoPlist.strings */; };
 		FEF4FA0217B7658B00AAAC63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF4FA0117B7658B00AAAC63 /* main.m */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		FE46B4F017B790D900828F4E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		FE46B4F117B790D900828F4E /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		FE46B4F317B79D5A00828F4E /* FileDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDialogController.h; sourceTree = "<group>"; };
+		FE46B4F417B79D5A00828F4E /* FileDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDialogController.m; sourceTree = "<group>"; };
 		FEF4F9F217B7658B00AAAC63 /* imapro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imapro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF4F9F517B7658B00AAAC63 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FEF4F9F817B7658B00AAAC63 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -82,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				FEF4F9FB17B7658B00AAAC63 /* imapro */,
+				FEF4F9FC17B7658B00AAAC63 /* Supporting Files */,
 				FEF4FA1817B7658B00AAAC63 /* imaproTests */,
 				FEF4F9F417B7658B00AAAC63 /* Frameworks */,
 				FEF4F9F317B7658B00AAAC63 /* Products */,
@@ -125,9 +129,10 @@
 				FEF4FA0A17B7658B00AAAC63 /* MainMenu.xib */,
 				FEF4FA2C17B787C300AAAC63 /* Controller.h */,
 				FEF4FA2D17B787C300AAAC63 /* Controller.m */,
+				FE46B4F317B79D5A00828F4E /* FileDialogController.h */,
+				FE46B4F417B79D5A00828F4E /* FileDialogController.m */,
 				FE46B4F017B790D900828F4E /* Model.h */,
 				FE46B4F117B790D900828F4E /* Model.m */,
-				FEF4F9FC17B7658B00AAAC63 /* Supporting Files */,
 			);
 			path = imapro;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				FEF4FA0417B7658B00AAAC63 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			path = imapro;
 			sourceTree = "<group>";
 		};
 		FEF4FA1817B7658B00AAAC63 /* imaproTests */ = {
@@ -275,6 +281,7 @@
 				FEF4FA0917B7658B00AAAC63 /* AppDelegate.m in Sources */,
 				FEF4FA2E17B787C300AAAC63 /* Controller.m in Sources */,
 				FE46B4F217B790D900828F4E /* Model.m in Sources */,
+				FE46B4F517B79D5A00828F4E /* FileDialogController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,9 @@
 
 @property(readonly)int counter;
 
-+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey;
 - (int)countUp;
+
+
+//+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey;
 
 @end
