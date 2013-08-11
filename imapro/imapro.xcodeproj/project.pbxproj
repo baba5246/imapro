@@ -17,6 +17,7 @@
 		FEF4FA1517B7658B00AAAC63 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF4F9F517B7658B00AAAC63 /* Cocoa.framework */; };
 		FEF4FA1D17B7658B00AAAC63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEF4FA1B17B7658B00AAAC63 /* InfoPlist.strings */; };
 		FEF4FA2017B7658B00AAAC63 /* imaproTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF4FA1F17B7658B00AAAC63 /* imaproTests.m */; };
+		FEF4FA2B17B7747400AAAC63 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF4FA2A17B7747400AAAC63 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		FEF4FA1C17B7658B00AAAC63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FEF4FA1E17B7658B00AAAC63 /* imaproTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imaproTests.h; sourceTree = "<group>"; };
 		FEF4FA1F17B7658B00AAAC63 /* imaproTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = imaproTests.m; sourceTree = "<group>"; };
+		FEF4FA2917B7747400AAAC63 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FEF4FA2A17B7747400AAAC63 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				FEF4FA0717B7658B00AAAC63 /* AppDelegate.h */,
 				FEF4FA0817B7658B00AAAC63 /* AppDelegate.m */,
 				FEF4FA0A17B7658B00AAAC63 /* MainMenu.xib */,
+				FEF4FA2917B7747400AAAC63 /* ViewController.h */,
+				FEF4FA2A17B7747400AAAC63 /* ViewController.m */,
 				FEF4F9FC17B7658B00AAAC63 /* Supporting Files */,
 			);
 			path = imapro;
@@ -263,6 +268,7 @@
 			files = (
 				FEF4FA0217B7658B00AAAC63 /* main.m in Sources */,
 				FEF4FA0917B7658B00AAAC63 /* AppDelegate.m in Sources */,
+				FEF4FA2B17B7747400AAAC63 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +458,7 @@
 				FEF4FA2517B7658B00AAAC63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEF4FA2617B7658B00AAAC63 /* Build configuration list for PBXNativeTarget "imaproTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +467,7 @@
 				FEF4FA2817B7658B00AAAC63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
