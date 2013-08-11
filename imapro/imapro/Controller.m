@@ -20,6 +20,7 @@
 
 - (IBAction)onSaveButtonClicked:(id)sender
 {
+    
     [xlabel setIntValue:1];
     [ylabel setIntValue:1];
     [wlabel setIntValue:1];
