@@ -1,6 +1,7 @@
 
 
 #import "Controller.h"
+#import "Model.h"
 
 @implementation Controller
 
@@ -8,24 +9,30 @@
 {
     self = [super init];
     if (self) {
-        
+        model = [[Model alloc] init];
+        [model addObserver:self forKeyPath:@"counter" options:(NSKeyValueObservingOptionNew) context:nil];
     }
     return self;
 }
 
-- (void) dealloc
-{
-    
-}
-
 - (IBAction)onSaveButtonClicked:(id)sender
 {
-    
-    [xlabel setIntValue:1];
-    [ylabel setIntValue:1];
-    [wlabel setIntValue:1];
-    [hlabel setIntValue:1];
-    [tlabel setIntValue:1];
+    [model countUp];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqual:@"counter"]) {
+        int data = [model counter];
+        
+        [xlabel setIntValue:data];
+        [ylabel setIntValue:data+data];
+        [wlabel setIntValue:data*data];
+        [hlabel setIntValue:pow(data, data)];  // Viewを更新
+    }
 }
 
 @end
