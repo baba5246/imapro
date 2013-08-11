@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'imapro' target in the 'imapro' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
