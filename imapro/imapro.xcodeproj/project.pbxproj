@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		87346A2C17D66F8A000DB403 /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		FE46B4F017B790D900828F4E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		FE46B4F117B790D900828F4E /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		FE46B4F317B79D5A00828F4E /* FileDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDialogController.h; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 			children = (
 				FEF4FA0717B7658B00AAAC63 /* AppDelegate.h */,
 				FEF4FA0817B7658B00AAAC63 /* AppDelegate.m */,
+				87346A2C17D66F8A000DB403 /* AppConstants.h */,
 				FEF4FA0A17B7658B00AAAC63 /* MainMenu.xib */,
 				FEF4FA2C17B787C300AAAC63 /* Controller.h */,
 				FEF4FA2D17B787C300AAAC63 /* Controller.m */,

@@ -4,11 +4,19 @@
 @interface Model : NSObject
 
 
-@property(readonly)int counter;
+@property (readonly) int counter;
+@property (nonatomic) NSString *directory;
+@property (nonatomic) NSArray *files;
+@property (nonatomic) NSURL *imagePath;
 
-- (int)countUp;
++ (Model*)sharedManager;
+
+- (int) countUp;
+- (void) setSubPath:(NSString *) subPath;
+- (void) setFiles:(NSArray *)filenames;
+- (void) setImagePath:(NSURL *)path;
 
 
-//+ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey;
++ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey;
 
 @end
