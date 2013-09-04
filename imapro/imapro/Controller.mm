@@ -1,6 +1,7 @@
 
 
 #import "Controller.h"
+#import "Processor.h"
 
 @implementation Controller
 {
@@ -21,7 +22,6 @@
         [model addObserver:self forKeyPath:IMAGE_PATH_KEY
                    options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionPrior)
                    context:nil];
-        
     }
     return self;
 }
@@ -29,10 +29,12 @@
 - (IBAction)onSaveButtonClicked:(id)sender
 {
     [model countUp];
+    [Processor test];
 }
 
 -(IBAction)onLeftButtonClicked:(id)sender
 {
+    
     NSString *filename = [self filenameFromPath:filePath];
     NSUInteger index = [files indexOfObject:filename];
     

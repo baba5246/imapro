@@ -47,12 +47,11 @@ static Model* sharedModel = nil;
 
 /* 手動で観察するための設定
  * これで戻り値が必ずNOになるようにする
- * でもなくても動くので今は置いとく
+ * でもなくても動くので今は置いとく（ →これないと動かなくなった at 130903
  */
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey
 {
     BOOL automatic = NO;
- 
 
     if ([theKey isEqualToString:IMAGE_PATH_KEY]) {
         automatic=NO;
