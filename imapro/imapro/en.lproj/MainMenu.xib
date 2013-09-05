@@ -437,7 +437,6 @@
 							<string key="NSFrame">{{674, 12}, {69, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="608391445">
@@ -773,14 +772,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">tlabel</string>
-						<reference key="source" ref="679692740"/>
-						<reference key="destination" ref="1071255130"/>
-					</object>
-					<int key="connectionID">909</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">rlabel</string>
 						<reference key="source" ref="679692740"/>
 						<reference key="destination" ref="506996873"/>
@@ -818,6 +809,22 @@
 						<reference key="destination" ref="927227235"/>
 					</object>
 					<int key="connectionID">1011</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">onDoneButtonClicked:</string>
+						<reference key="source" ref="679692740"/>
+						<reference key="destination" ref="172519166"/>
+					</object>
+					<int key="connectionID">1015</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">options</string>
+						<reference key="source" ref="679692740"/>
+						<reference key="destination" ref="479574352"/>
+					</object>
+					<int key="connectionID">1017</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1291,7 +1298,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1014</int>
+			<int key="maxID">1017</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1318,11 +1325,16 @@
 					<string key="className">Controller</string>
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="onDoneButtonClicked:">id</string>
 						<string key="onLeftButtonClicked:">id</string>
 						<string key="onRightButtonClicked:">id</string>
 						<string key="onSaveButtonClicked:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="onDoneButtonClicked:">
+							<string key="name">onDoneButtonClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="onLeftButtonClicked:">
 							<string key="name">onLeftButtonClicked:</string>
 							<string key="candidateClassName">id</string>
@@ -1339,6 +1351,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="flabel">id</string>
 						<string key="imgView">NSImageView</string>
+						<string key="options">NSComboBox</string>
 						<string key="rlabel">id</string>
 						<string key="tlabel">id</string>
 					</dictionary>
@@ -1350,6 +1363,10 @@
 						<object class="IBToOneOutletInfo" key="imgView">
 							<string key="name">imgView</string>
 							<string key="candidateClassName">NSImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="options">
+							<string key="name">options</string>
+							<string key="candidateClassName">NSComboBox</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="rlabel">
 							<string key="name">rlabel</string>

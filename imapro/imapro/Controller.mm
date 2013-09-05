@@ -7,6 +7,7 @@
 {
     NSArray *files;
     NSURL *filePath;
+    Processor *processor;
 }
 
 @synthesize imgView;
@@ -22,14 +23,10 @@
         [model addObserver:self forKeyPath:IMAGE_PATH_KEY
                    options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionPrior)
                    context:nil];
+        
+        processor = [Processor sharedManager];
     }
     return self;
-}
-
-- (IBAction)onSaveButtonClicked:(id)sender
-{
-    [model countUp];
-    [Processor test];
 }
 
 -(IBAction)onLeftButtonClicked:(id)sender
@@ -62,6 +59,21 @@
         [self setImageFromFilePath];
     }
 }
+
+- (IBAction)onDoneButtonClicked:(id)sender
+{
+    NSInteger index = [options indexOfSelectedItem];
+    NSString *item = [options itemObjectValueAtIndex:index];
+    NSLog(@"selected index: %ld, item:%@", (long)index, item);
+    
+    [self imageProcessing:index];
+}
+
+- (IBAction)onSaveButtonClicked:(id)sender
+{
+    [model countUp];
+}
+
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -104,4 +116,26 @@
     return filename;
 }
 
+- (void) imageProcessing:(NSInteger)index
+{
+    switch (index) {
+        case 0: // エッジ検出
+            imgView.image = [processor detectEdgesWithNSImage:filePath.path];
+            break;
+        case 1: // 輪郭検出
+            imgView.image = [processor detectControursFromFilename:filePath.path];
+            break;
+        case 2: // MSER検出
+            break;
+        case 3: // 提案手法1
+            break;
+        case 4: // 勾配ベクトル算出
+            break;
+        case 5: // Etext算出
+            break;
+            
+        default:
+            break;
+    }
+}
 @end
