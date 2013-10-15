@@ -11,11 +11,13 @@
 
 + (Model*)sharedManager;
 
-- (int) countUp;
 - (void) setSubPath:(NSString *) subPath;
 - (void) setFiles:(NSArray *)filenames;
 - (void) setImagePath:(NSURL *)path;
 
+- (void) addRectangle:(RectView *)rectView;
+- (void) resetRectangles;
+- (BOOL) saveRectangles;
 
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey;
 
