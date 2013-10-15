@@ -1,5 +1,6 @@
 
 #import <Foundation/Foundation.h>
+#import "ImgView.h"
 
 @class Model;
 
@@ -13,12 +14,11 @@
     IBOutlet NSComboBox *options;
 }
 
-@property (nonatomic, strong) IBOutlet NSImageView *imgView;
+@property (nonatomic, retain) IBOutlet ImgView *imgView;
 
 -(IBAction)onLeftButtonClicked:(id)sender;
 -(IBAction)onRightButtonClicked:(id)sender;
 -(IBAction)onDoneButtonClicked:(id)sender;
--(IBAction)onSaveButtonClicked:(id)sender;
 
 -(void)observeValueForKeyPath:(NSString *)keyPath
                      ofObject:(id)object
