@@ -1,7 +1,7 @@
 
-
 #import "Controller.h"
 #import "Processor.h"
+#import "RectView.h"
 
 @implementation Controller
 {
@@ -18,8 +18,6 @@
     if (self) {
         
         model = [Model sharedManager];
-        [model addObserver:self forKeyPath:@"counter"
-                   options:(NSKeyValueObservingOptionNew) context:nil];
         [model addObserver:self forKeyPath:IMAGE_PATH_KEY
                    options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionPrior)
                    context:nil];
@@ -35,13 +33,23 @@
     NSString *filename = [self filenameFromPath:filePath];
     NSUInteger index = [files indexOfObject:filename];
     
-    if (index > 0)
+    if (index > 0 && files.count > 0)
     {
-        filename = [files objectAtIndex:index-1];
-        NSString *pathString = [[model directory] stringByAppendingString:filename];
-        filePath = [NSURL fileURLWithPath:pathString];
-        
-        [self setImageFromFilePath];
+        // アラート表示
+        NSAlert *alert = [self deleteRectangleAlertView];
+        if ([alert runModal] == NSAlertFirstButtonReturn) // OKボタン
+        {
+            // rectanglesを消す
+            [model resetRectangles];
+            
+            // 画像遷移
+            filename = [files objectAtIndex:index-1];
+            NSString *pathString = [[model directory] stringByAppendingString:filename];
+            filePath = [NSURL fileURLWithPath:pathString];
+            
+            [self setImageFromFilePath];
+        }
+
     }
 }
 
@@ -50,13 +58,23 @@
     NSString *filename = [self filenameFromPath:filePath];
     NSUInteger index = [files indexOfObject:filename];
     
-    if (index < [files count]-1)
+  
+    if (index < [files count]-1 && files.count > 0)
     {
-        filename = [files objectAtIndex:index+1];
-        NSString *pathString = [[model directory] stringByAppendingString:filename];
-        filePath = [NSURL fileURLWithPath:pathString];
-        
-        [self setImageFromFilePath];
+        // アラート表示
+        NSAlert *alert = [self deleteRectangleAlertView];
+        if ([alert runModal] == NSAlertFirstButtonReturn) // OKボタン
+        {
+            // rectanglesを消す
+            [model resetRectangles];
+            
+            // 画像遷移
+            filename = [files objectAtIndex:index+1];
+            NSString *pathString = [[model directory] stringByAppendingString:filename];
+            filePath = [NSURL fileURLWithPath:pathString];
+            
+            [self setImageFromFilePath];
+        }
     }
 }
 
@@ -71,7 +89,7 @@
 
 - (IBAction)onSaveButtonClicked:(id)sender
 {
-    [model countUp];
+    
 }
 
 
@@ -80,21 +98,19 @@
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    if ([keyPath isEqual:@"counter"])
+    if ([keyPath isEqual:IMAGE_PATH_KEY])
     {
-        int data = [model counter];
+        [imgView prepare];
         
-        NSString *rectangle = [NSString stringWithFormat:@"(%d, %d)(%d, %d)",
-                               data, data+data, data*data, (int)pow(data, data)];
-        [rlabel setStringValue:rectangle];
-        [tlabel setStringValue:@"sample"];  // Viewを更新
-    }
-    else if ([keyPath isEqual:IMAGE_PATH_KEY])
-    {
         filePath = [model imagePath];
         files = [model files];
         
         [self setImageFromFilePath];
+    }
+    else if ([keyPath isEqual:@""])
+    {
+        
+    
     }
     
 }
@@ -138,4 +154,18 @@
             break;
     }
 }
+
+
+- (NSAlert *) deleteRectangleAlertView
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert setMessageText:@"Delete rectangles information?"];
+    [alert setInformativeText:@"Push the \"Save\" button for saving the info of rectangles."];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    return alert;
+}
+
 @end

@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87346A3117D6C667000DB403 /* libopencv_core.2.4.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87346A2E17D6C667000DB403 /* libopencv_core.2.4.5.dylib */; };
-		87346A3217D6C667000DB403 /* libopencv_highgui.2.4.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87346A2F17D6C667000DB403 /* libopencv_highgui.2.4.5.dylib */; };
-		87346A3317D6C667000DB403 /* libopencv_imgproc.2.4.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87346A3017D6C667000DB403 /* libopencv_imgproc.2.4.5.dylib */; };
 		87346A3617D6F07A000DB403 /* Processor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 87346A3517D6F07A000DB403 /* Processor.mm */; };
 		FE46B4F217B790D900828F4E /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = FE46B4F117B790D900828F4E /* Model.m */; };
 		FE46B4F517B79D5A00828F4E /* FileDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE46B4F417B79D5A00828F4E /* FileDialogController.m */; };
+		FEA24038180D669F00AF402A /* libopencv_core.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA24035180D669F00AF402A /* libopencv_core.2.4.2.dylib */; };
+		FEA24039180D669F00AF402A /* libopencv_highgui.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA24036180D669F00AF402A /* libopencv_highgui.2.4.2.dylib */; };
+		FEA2403A180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA24037180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib */; };
+		FEA2403F180D720500AF402A /* RectView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2403E180D720500AF402A /* RectView.m */; };
+		FEA24042180D752A00AF402A /* ImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24041180D752A00AF402A /* ImgView.m */; };
+		FEA2404E180DB9CA00AF402A /* XmlController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2404D180DB9CA00AF402A /* XmlController.m */; };
 		FEF4F9F617B7658B00AAAC63 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF4F9F517B7658B00AAAC63 /* Cocoa.framework */; };
 		FEF4FA0017B7658B00AAAC63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEF4F9FE17B7658B00AAAC63 /* InfoPlist.strings */; };
 		FEF4FA0217B7658B00AAAC63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF4FA0117B7658B00AAAC63 /* main.m */; };
@@ -38,15 +41,21 @@
 
 /* Begin PBXFileReference section */
 		87346A2C17D66F8A000DB403 /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
-		87346A2E17D6C667000DB403 /* libopencv_core.2.4.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_core.2.4.5.dylib; sourceTree = "<group>"; };
-		87346A2F17D6C667000DB403 /* libopencv_highgui.2.4.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_highgui.2.4.5.dylib; sourceTree = "<group>"; };
-		87346A3017D6C667000DB403 /* libopencv_imgproc.2.4.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_imgproc.2.4.5.dylib; sourceTree = "<group>"; };
 		87346A3417D6F07A000DB403 /* Processor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processor.h; sourceTree = "<group>"; };
 		87346A3517D6F07A000DB403 /* Processor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Processor.mm; sourceTree = "<group>"; };
 		FE46B4F017B790D900828F4E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		FE46B4F117B790D900828F4E /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		FE46B4F317B79D5A00828F4E /* FileDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDialogController.h; sourceTree = "<group>"; };
 		FE46B4F417B79D5A00828F4E /* FileDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDialogController.m; sourceTree = "<group>"; };
+		FEA24035180D669F00AF402A /* libopencv_core.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.2.dylib; path = /opt/local/lib/libopencv_core.2.4.2.dylib; sourceTree = "<absolute>"; };
+		FEA24036180D669F00AF402A /* libopencv_highgui.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.2.4.2.dylib; path = /opt/local/lib/libopencv_highgui.2.4.2.dylib; sourceTree = "<absolute>"; };
+		FEA24037180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.2.4.2.dylib; path = /opt/local/lib/libopencv_imgproc.2.4.2.dylib; sourceTree = "<absolute>"; };
+		FEA2403D180D720500AF402A /* RectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectView.h; sourceTree = "<group>"; };
+		FEA2403E180D720500AF402A /* RectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectView.m; sourceTree = "<group>"; };
+		FEA24040180D752A00AF402A /* ImgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgView.h; sourceTree = "<group>"; };
+		FEA24041180D752A00AF402A /* ImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgView.m; sourceTree = "<group>"; };
+		FEA2404C180DB9CA00AF402A /* XmlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlController.h; sourceTree = "<group>"; };
+		FEA2404D180DB9CA00AF402A /* XmlController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlController.m; sourceTree = "<group>"; };
 		FEF4F9F217B7658B00AAAC63 /* imapro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imapro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF4F9F517B7658B00AAAC63 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FEF4F9F817B7658B00AAAC63 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -75,10 +84,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEA24038180D669F00AF402A /* libopencv_core.2.4.2.dylib in Frameworks */,
+				FEA24039180D669F00AF402A /* libopencv_highgui.2.4.2.dylib in Frameworks */,
+				FEA2403A180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib in Frameworks */,
 				FEF4F9F617B7658B00AAAC63 /* Cocoa.framework in Frameworks */,
-				87346A3117D6C667000DB403 /* libopencv_core.2.4.5.dylib in Frameworks */,
-				87346A3217D6C667000DB403 /* libopencv_highgui.2.4.5.dylib in Frameworks */,
-				87346A3317D6C667000DB403 /* libopencv_imgproc.2.4.5.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,11 +106,46 @@
 		87346A2D17D6C5F9000DB403 /* OpenCV */ = {
 			isa = PBXGroup;
 			children = (
-				87346A2E17D6C667000DB403 /* libopencv_core.2.4.5.dylib */,
-				87346A2F17D6C667000DB403 /* libopencv_highgui.2.4.5.dylib */,
-				87346A3017D6C667000DB403 /* libopencv_imgproc.2.4.5.dylib */,
+				FEA24035180D669F00AF402A /* libopencv_core.2.4.2.dylib */,
+				FEA24036180D669F00AF402A /* libopencv_highgui.2.4.2.dylib */,
+				FEA24037180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib */,
 			);
 			name = OpenCV;
+			sourceTree = "<group>";
+		};
+		FEA24043180D756900AF402A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FEA24040180D752A00AF402A /* ImgView.h */,
+				FEA24041180D752A00AF402A /* ImgView.m */,
+				FEA2403D180D720500AF402A /* RectView.h */,
+				FEA2403E180D720500AF402A /* RectView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FEA24044180D758200AF402A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FE46B4F017B790D900828F4E /* Model.h */,
+				FE46B4F117B790D900828F4E /* Model.m */,
+				87346A3417D6F07A000DB403 /* Processor.h */,
+				87346A3517D6F07A000DB403 /* Processor.mm */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		FEA24045180D75A600AF402A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FEF4FA2C17B787C300AAAC63 /* Controller.h */,
+				FEF4FA2D17B787C300AAAC63 /* Controller.mm */,
+				FE46B4F317B79D5A00828F4E /* FileDialogController.h */,
+				FE46B4F417B79D5A00828F4E /* FileDialogController.m */,
+				FEA2404C180DB9CA00AF402A /* XmlController.h */,
+				FEA2404D180DB9CA00AF402A /* XmlController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		FEF4F9E917B7658B00AAAC63 = {
@@ -152,14 +196,9 @@
 				FEF4FA0817B7658B00AAAC63 /* AppDelegate.mm */,
 				87346A2C17D66F8A000DB403 /* AppConstants.h */,
 				FEF4FA0A17B7658B00AAAC63 /* MainMenu.xib */,
-				FEF4FA2C17B787C300AAAC63 /* Controller.h */,
-				FEF4FA2D17B787C300AAAC63 /* Controller.mm */,
-				87346A3417D6F07A000DB403 /* Processor.h */,
-				87346A3517D6F07A000DB403 /* Processor.mm */,
-				FE46B4F317B79D5A00828F4E /* FileDialogController.h */,
-				FE46B4F417B79D5A00828F4E /* FileDialogController.m */,
-				FE46B4F017B790D900828F4E /* Model.h */,
-				FE46B4F117B790D900828F4E /* Model.m */,
+				FEA24043180D756900AF402A /* Views */,
+				FEA24045180D75A600AF402A /* Controllers */,
+				FEA24044180D758200AF402A /* Utilities */,
 			);
 			path = imapro;
 			sourceTree = "<group>";
@@ -310,6 +349,9 @@
 				FE46B4F217B790D900828F4E /* Model.m in Sources */,
 				FE46B4F517B79D5A00828F4E /* FileDialogController.m in Sources */,
 				87346A3617D6F07A000DB403 /* Processor.mm in Sources */,
+				FEA2403F180D720500AF402A /* RectView.m in Sources */,
+				FEA24042180D752A00AF402A /* ImgView.m in Sources */,
+				FEA2404E180DB9CA00AF402A /* XmlController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,14 +473,13 @@
 		FEF4FA2417B7658B00AAAC63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "imapro/imapro-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "imapro/imapro-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -447,14 +488,13 @@
 		FEF4FA2517B7658B00AAAC63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "imapro/imapro-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "imapro/imapro-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
