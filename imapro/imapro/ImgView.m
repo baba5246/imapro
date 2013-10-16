@@ -8,6 +8,7 @@
     NSPoint start, previous, moving, end;
     
     RectView *rectView;
+    InputView *input;
 }
 
 @synthesize rectNum;
@@ -32,11 +33,15 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-    
     if (model.imagePath.path.length>0) {
         start = [self convertPoint:[theEvent locationInWindow] fromView:[[self window] contentView]];
     } else {
         return;
+    }
+    
+    if (rectView != nil) {
+        [rectView removeFromSuperview];
+        [input removeFromSuperview];
     }
     
     rectNum++;
@@ -47,7 +52,7 @@
 
 -(void)mouseDragged:(NSEvent *)theEvent
 {
-    if (start.x < 0 && start.y < 0) return;
+    if (start.x == 0 && start.y == 0) return;
     
     moving = [self convertPoint:[theEvent locationInWindow] fromView:[[self window] contentView]];
     
@@ -66,11 +71,12 @@
 
 - (void)mouseUp:(NSEvent *)theEvent
 {
-    if (start.x < 0 && start.y < 0) return;
+    if (start.x == 0 && start.y == 0) return;
     
     end = [self convertPoint:[theEvent locationInWindow] fromView:[[self window] contentView]];
     
-    [rectView saveTruth];
+    [self addInputView:start];
+    //[rectView saveTruth];
 }
 
 
@@ -105,6 +111,23 @@
     for (RectView *view in subviews) {
         [view removeFromSuperview];
     }
+}
+
+- (void) addInputView:(NSPoint) origin
+{
+    if (input != nil) [input removeFromSuperview];
+        
+    input = [[InputView alloc] initWithOrigin:origin];
+    input.delegate = self;
+    [self addSubview:input];
+}
+
+- (void) endEditing
+{
+    rectView.truth.text = input.stringValue;
+    [rectView saveTruth];
+    
+    rectView = nil;
 }
 
 @end
