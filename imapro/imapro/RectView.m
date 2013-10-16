@@ -27,7 +27,6 @@
 {
     Model *model = [Model sharedManager];
     truth.rect = self.frame;
-    truth.text = model.filename;
     [model addTruth:truth];
 }
 

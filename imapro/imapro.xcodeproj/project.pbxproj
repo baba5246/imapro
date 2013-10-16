@@ -10,6 +10,7 @@
 		87346A3617D6F07A000DB403 /* Processor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 87346A3517D6F07A000DB403 /* Processor.mm */; };
 		FE46B4F217B790D900828F4E /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = FE46B4F117B790D900828F4E /* Model.m */; };
 		FE46B4F517B79D5A00828F4E /* FileDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE46B4F417B79D5A00828F4E /* FileDialogController.m */; };
+		FE78355B180EB09C00053985 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE78355A180EB09C00053985 /* InputView.m */; };
 		FEA24038180D669F00AF402A /* libopencv_core.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA24035180D669F00AF402A /* libopencv_core.2.4.2.dylib */; };
 		FEA24039180D669F00AF402A /* libopencv_highgui.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA24036180D669F00AF402A /* libopencv_highgui.2.4.2.dylib */; };
 		FEA2403A180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA24037180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib */; };
@@ -48,6 +49,8 @@
 		FE46B4F117B790D900828F4E /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		FE46B4F317B79D5A00828F4E /* FileDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDialogController.h; sourceTree = "<group>"; };
 		FE46B4F417B79D5A00828F4E /* FileDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDialogController.m; sourceTree = "<group>"; };
+		FE783559180EB09C00053985 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		FE78355A180EB09C00053985 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
 		FEA24035180D669F00AF402A /* libopencv_core.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.2.dylib; path = /opt/local/lib/libopencv_core.2.4.2.dylib; sourceTree = "<absolute>"; };
 		FEA24036180D669F00AF402A /* libopencv_highgui.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.2.4.2.dylib; path = /opt/local/lib/libopencv_highgui.2.4.2.dylib; sourceTree = "<absolute>"; };
 		FEA24037180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.2.4.2.dylib; path = /opt/local/lib/libopencv_imgproc.2.4.2.dylib; sourceTree = "<absolute>"; };
@@ -123,6 +126,8 @@
 				FEA24041180D752A00AF402A /* ImgView.m */,
 				FEA2403D180D720500AF402A /* RectView.h */,
 				FEA2403E180D720500AF402A /* RectView.m */,
+				FE783559180EB09C00053985 /* InputView.h */,
+				FE78355A180EB09C00053985 /* InputView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 				FEA24042180D752A00AF402A /* ImgView.m in Sources */,
 				FEA24051180E75E000AF402A /* XmlMaker.m in Sources */,
 				FEA24054180E7C7F00AF402A /* Truth.m in Sources */,
+				FE78355B180EB09C00053985 /* InputView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

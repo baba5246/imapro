@@ -1,7 +1,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ImgView : NSImageView
+@interface ImgView : NSImageView <InputViewDelegate>
 
 
 @property (nonatomic, assign) NSInteger rectNum;
