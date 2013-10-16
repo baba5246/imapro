@@ -23,6 +23,7 @@
 - (void) resetRectangles;
 - (BOOL) saveRectangles;
 
+- (NSMutableArray *) getRectangles;
 - (NSMutableDictionary *) getXMLData;
 
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey;

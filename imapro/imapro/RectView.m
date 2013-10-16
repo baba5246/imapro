@@ -3,7 +3,7 @@
 
 @implementation RectView
 
-@synthesize text, number, truth;
+@synthesize number, truth, color;
 
 - (id) initWithFrame:(NSRect)frameRect rectNum:(NSInteger)rectNum
 {
@@ -11,6 +11,7 @@
     if (self) {
         number = rectNum;
         truth = [[Truth alloc] init];
+        color = [NSColor redColor];
     }
     return self;
 }
@@ -18,7 +19,7 @@
 - (void) drawRect:(NSRect)dirtyRect
 {
     NSRect rect = self.bounds;
-    [[NSColor redColor] set];
+    [color set];
     NSFrameRect(rect);
 }
 

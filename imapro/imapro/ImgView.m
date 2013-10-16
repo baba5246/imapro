@@ -81,13 +81,22 @@
 {
     if ([keyPath isEqual:RECTANGLES_KEY])
     {
-        [self resetRectangles];
+        if ([[model getRectangles] count] == 0) [self resetRectangles];
     }
     else if ([keyPath isEqual:@""])
     {
         
     }
     
+}
+
+- (void) changeRectanglesState
+{
+    NSArray *subviews = self.subviews.copy;
+    for (RectView *view in subviews) {
+        view.color = [NSColor greenColor];
+        [view setNeedsDisplay:YES];
+    }
 }
 
 - (void) resetRectangles

@@ -19,6 +19,9 @@
         [model addObserver:self forKeyPath:IMAGE_PATH_KEY
                    options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionPrior)
                    context:nil];
+        [model addObserver:self forKeyPath:RECTANGLES_KEY
+                   options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionPrior)
+                   context:nil];
         
         processor = [Processor sharedManager];
     }
@@ -34,9 +37,21 @@
     if (model.fileIndex > 0 && model.files.count > 0)
     {
         // アラート表示
-        NSAlert *alert = [self deleteRectangleAlertView];
-        if ([alert runModal] == NSAlertFirstButtonReturn) // OKボタン
+        if ([[model getRectangles] count] > 0)
         {
+            NSAlert *alert = [self deleteRectangleAlertView];
+            if ([alert runModal] == NSAlertFirstButtonReturn) // OKボタン
+            {
+                // rectanglesを消す
+                [model resetRectangles];
+                
+                // 前の画像の準備
+                [model setPreviousFileInfo];
+                
+                // 画像をセット
+                [self setImageFromFilePath];
+            }
+        } else {
             // rectanglesを消す
             [model resetRectangles];
             
@@ -46,6 +61,7 @@
             // 画像をセット
             [self setImageFromFilePath];
         }
+        
 
     }
 }
@@ -55,8 +71,21 @@
     if (model.fileIndex < [model.files count]-1 && model.files.count > 0)
     {
         // アラート表示
-        NSAlert *alert = [self deleteRectangleAlertView];
-        if ([alert runModal] == NSAlertFirstButtonReturn) // OKボタン
+        if ([[model getRectangles] count] > 0) {
+            NSAlert *alert = [self deleteRectangleAlertView];
+            if ([alert runModal] == NSAlertFirstButtonReturn) // OKボタン
+            {
+                // rectanglesを消す
+                [model resetRectangles];
+                
+                // 次の画像の準備
+                [model setNextFileInfo];
+                
+                // 画像をセット
+                [self setImageFromFilePath];
+            }
+        }
+        else
         {
             // rectanglesを消す
             [model resetRectangles];
@@ -86,6 +115,9 @@
     
     if ([model saveRectangles])
     {
+        [imgView changeRectanglesState];
+        [xmlDataCountLabel setIntegerValue:[[model.getXMLData allKeys] count]];
+        
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:@"OK"];
         [alert setMessageText:@"Succeeded!"];
@@ -123,6 +155,10 @@
         // 画像をセット
         [self setImageFromFilePath];
     }
+    else if ([keyPath isEqual:RECTANGLES_KEY])
+    {
+        [rectCountLabel setIntegerValue:[[model getRectangles] count]];
+    }
     else if ([keyPath isEqual:@""])
     {
         
@@ -137,7 +173,7 @@
 
 - (void) setImageFromFilePath
 {
-    if (model.filename.length>0) [flabel setStringValue:model.filename];
+    if (model.filename.length>0) [fileNameLabel setStringValue:model.filename];
     
     NSImage *image = [[NSImage alloc] initWithContentsOfURL:model.imagePath];
     imgView.image = image;

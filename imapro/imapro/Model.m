@@ -73,6 +73,8 @@ static Model* sharedModel = nil;
 - (void) addTruth:(Truth *)truth
 {
     [rectangles addObject:truth];
+    [self willChangeValueForKey:RECTANGLES_KEY];
+    [self didChangeValueForKey:RECTANGLES_KEY];
 }
 
 - (void) resetRectangles
@@ -88,14 +90,17 @@ static Model* sharedModel = nil;
     {
         NSArray *rects = [[NSArray alloc] initWithArray:rectangles];
         [xmlData setObject:rects forKey:filename];
-        
-        [self resetRectangles];
         return YES;
     }
     else
     {
         return NO;
     }
+}
+
+- (NSMutableArray *) getRectangles
+{
+    return rectangles;
 }
 
 - (NSMutableDictionary *) getXMLData

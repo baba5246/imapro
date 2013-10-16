@@ -1,6 +1,5 @@
 
 #import <Foundation/Foundation.h>
-#import "ImgView.h"
 
 @class Model;
 
@@ -8,7 +7,11 @@
 {
     Model *model;
     
-    IBOutlet id flabel;
+    IBOutlet id fileNameLabel;
+    IBOutlet id rectLabel;
+    IBOutlet id rectCountLabel;
+    IBOutlet id xmlDataCountLabel;
+    
     IBOutlet NSComboBox *options;
 }
 
