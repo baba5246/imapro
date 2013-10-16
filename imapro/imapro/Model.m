@@ -4,13 +4,13 @@
 @implementation Model
 {
     NSMutableArray *rectangles;
-    NSMutableArray *xmlComponents;
+    NSMutableDictionary *xmlData;
 }
 
 @synthesize directory;
 @synthesize files;
 @synthesize counter;
-@synthesize imagePath;
+@synthesize imagePath, filename, fileIndex;
 
 static Model* sharedModel = nil;
 
@@ -27,17 +27,7 @@ static Model* sharedModel = nil;
 - (void) prepare
 {
     rectangles = [[NSMutableArray alloc] init];
-    xmlComponents = [[NSMutableArray alloc] init];
-}
-
-- (void) setSubPath:(NSString *)subPath
-{
-     directory = subPath;
-}
-
-- (void) setFiles:(NSArray *)filenames
-{
-    files = filenames;
+    xmlData = [[NSMutableDictionary alloc] init];
 }
 
 - (void) setImagePath:(NSURL *)path
@@ -47,30 +37,71 @@ static Model* sharedModel = nil;
     [self didChangeValueForKey:IMAGE_PATH_KEY];
 }
 
-- (void) addRectangle:(RectView *)rectView
+- (void) setFilename:(NSString *)name
 {
-    [rectangles addObject:rectView];
+    filename = name;
+    if (files.count > 0) fileIndex = [files indexOfObject:filename];
+    else fileIndex = -1;
+}
+
+- (NSString*) filenameFromPath:(NSURL*)path
+{
+    NSArray *parts = [path.path componentsSeparatedByString:@"/"];
+    NSString *fname = [parts objectAtIndex:[parts count]-1];
+    
+    return fname;
+}
+
+
+- (void) setPreviousFileInfo
+{
+    fileIndex--;
+    filename = [files objectAtIndex:fileIndex];
+    NSString *pathString = [directory stringByAppendingString:filename];
+    imagePath = [NSURL fileURLWithPath:pathString];
+}
+
+- (void)setNextFileInfo
+{
+    fileIndex++;
+    filename = [files objectAtIndex:fileIndex];
+    NSString *pathString = [directory stringByAppendingString:filename];
+    imagePath = [NSURL fileURLWithPath:pathString];
+}
+
+
+- (void) addTruth:(Truth *)truth
+{
+    [rectangles addObject:truth];
 }
 
 - (void) resetRectangles
 {
-    [self willChangeValueForKey:DELETE_RECTANGLES_KEY];
+    [self willChangeValueForKey:RECTANGLES_KEY];
     [rectangles removeAllObjects];
-    [self didChangeValueForKey:DELETE_RECTANGLES_KEY];
+    [self didChangeValueForKey:RECTANGLES_KEY];
 }
 
 - (BOOL) saveRectangles
 {
-    if (rectangles.count > 0) {
+    if (rectangles.count > 0)
+    {
         NSArray *rects = [[NSArray alloc] initWithArray:rectangles];
-        [xmlComponents addObject:rects];
+        [xmlData setObject:rects forKey:filename];
+        
         [self resetRectangles];
         return YES;
-    } else {
+    }
+    else
+    {
         return NO;
     }
 }
 
+- (NSMutableDictionary *) getXMLData
+{
+    return xmlData;
+}
 
 /* 手動で観察するための設定
  * これで戻り値が必ずNOになるようにする
@@ -81,7 +112,7 @@ static Model* sharedModel = nil;
     BOOL automatic = NO;
 
     if ([theKey isEqualToString:IMAGE_PATH_KEY] ||
-        [theKey isEqualToString:DELETE_RECTANGLES_KEY])
+        [theKey isEqualToString:RECTANGLES_KEY])
     {
         automatic=NO;
     }

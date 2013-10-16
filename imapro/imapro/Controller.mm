@@ -5,8 +5,6 @@
 
 @implementation Controller
 {
-    NSArray *files;
-    NSURL *filePath;
     Processor *processor;
 }
 
@@ -27,13 +25,13 @@
     return self;
 }
 
+
+#pragma mark -
+#pragma mark Button Action Methods
+
 -(IBAction)onLeftButtonClicked:(id)sender
 {
-    
-    NSString *filename = [self filenameFromPath:filePath];
-    NSUInteger index = [files indexOfObject:filename];
-    
-    if (index > 0 && files.count > 0)
+    if (model.fileIndex > 0 && model.files.count > 0)
     {
         // アラート表示
         NSAlert *alert = [self deleteRectangleAlertView];
@@ -42,11 +40,10 @@
             // rectanglesを消す
             [model resetRectangles];
             
-            // 画像遷移
-            filename = [files objectAtIndex:index-1];
-            NSString *pathString = [[model directory] stringByAppendingString:filename];
-            filePath = [NSURL fileURLWithPath:pathString];
+            // 前の画像の準備
+            [model setPreviousFileInfo];
             
+            // 画像をセット
             [self setImageFromFilePath];
         }
 
@@ -55,11 +52,7 @@
 
 -(IBAction)onRightButtonClicked:(id)sender
 {
-    NSString *filename = [self filenameFromPath:filePath];
-    NSUInteger index = [files indexOfObject:filename];
-    
-  
-    if (index < [files count]-1 && files.count > 0)
+    if (model.fileIndex < [model.files count]-1 && model.files.count > 0)
     {
         // アラート表示
         NSAlert *alert = [self deleteRectangleAlertView];
@@ -68,11 +61,10 @@
             // rectanglesを消す
             [model resetRectangles];
             
-            // 画像遷移
-            filename = [files objectAtIndex:index+1];
-            NSString *pathString = [[model directory] stringByAppendingString:filename];
-            filePath = [NSURL fileURLWithPath:pathString];
+            // 次の画像の準備
+            [model setNextFileInfo];
             
+            // 画像をセット
             [self setImageFromFilePath];
         }
     }
@@ -87,11 +79,36 @@
     [self imageProcessing:index];
 }
 
-- (IBAction)onSaveButtonClicked:(id)sender
+
+-(IBAction)onSaveButtonClicked:(id)sender
 {
+    model = [Model sharedManager];
     
+    if ([model saveRectangles])
+    {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:@"Succeeded!"];
+        [alert setInformativeText:@"Saving operation finished successfully!"];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        
+        [alert runModal];
+    }
+    else
+    {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:@"Failed!"];
+        [alert setInformativeText:@"Saving operation was failed because there are no rectangles..."];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        
+        [alert runModal];
+    }
 }
 
+
+#pragma mark -
+#pragma mark Observer Methods
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -100,11 +117,10 @@
 {
     if ([keyPath isEqual:IMAGE_PATH_KEY])
     {
+        // imgViewの準備
         [imgView prepare];
         
-        filePath = [model imagePath];
-        files = [model files];
-        
+        // 画像をセット
         [self setImageFromFilePath];
     }
     else if ([keyPath isEqual:@""])
@@ -115,31 +131,41 @@
     
 }
 
+
+#pragma mark -
+#pragma mark Set View Methods
+
 - (void) setImageFromFilePath
 {
-    NSString *filename = [self filenameFromPath:filePath];
-    if (filename != nil) [flabel setStringValue:filename];
+    if (model.filename.length>0) [flabel setStringValue:model.filename];
     
-    NSImage *image = [[NSImage alloc] initWithContentsOfURL:filePath];
+    NSImage *image = [[NSImage alloc] initWithContentsOfURL:model.imagePath];
     imgView.image = image;
 }
 
-- (NSString*) filenameFromPath:(NSURL*)path
+- (NSAlert *) deleteRectangleAlertView
 {
-    NSArray *parts = [path.path componentsSeparatedByString:@"/"];
-    NSString *filename = [parts objectAtIndex:[parts count]-1];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert setMessageText:@"Delete rectangles information?"];
+    [alert setInformativeText:@"Push the \"Save\" button for saving the info of rectangles."];
+    [alert setAlertStyle:NSWarningAlertStyle];
     
-    return filename;
+    return alert;
 }
+
+#pragma mark -
+#pragma mark Image Processing Methods
 
 - (void) imageProcessing:(NSInteger)index
 {
     switch (index) {
         case 0: // エッジ検出
-            imgView.image = [processor detectEdgesWithNSImage:filePath.path];
+            imgView.image = [processor detectEdgesWithNSImage:model.imagePath.path];
             break;
         case 1: // 輪郭検出
-            imgView.image = [processor detectControursFromFilename:filePath.path];
+            imgView.image = [processor detectControursFromFilename:model.imagePath.path];
             break;
         case 2: // MSER検出
             break;
@@ -153,19 +179,6 @@
         default:
             break;
     }
-}
-
-
-- (NSAlert *) deleteRectangleAlertView
-{
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert addButtonWithTitle:@"OK"];
-    [alert addButtonWithTitle:@"Cancel"];
-    [alert setMessageText:@"Delete rectangles information?"];
-    [alert setInformativeText:@"Push the \"Save\" button for saving the info of rectangles."];
-    [alert setAlertStyle:NSWarningAlertStyle];
-    
-    return alert;
 }
 
 @end

@@ -16,7 +16,7 @@
 {
     model = [Model sharedManager];
     
-    [model addObserver:self forKeyPath:DELETE_RECTANGLES_KEY
+    [model addObserver:self forKeyPath:RECTANGLES_KEY
                options:(NSKeyValueObservingOptionNew|NSKeyValueObservingOptionPrior)
                context:nil];
     
@@ -41,8 +41,7 @@
     
     rectNum++;
     NSRect rect = NSMakeRect(start.x, start.y, start.x-start.x, start.y-start.y);
-    rectView = [[RectView alloc] initWithFrame:rect];
-    rectView.number = rectNum;
+    rectView = [[RectView alloc] initWithFrame:rect rectNum:rectNum];
     [self addSubview:rectView];
 }
 
@@ -71,8 +70,7 @@
     
     end = [self convertPoint:[theEvent locationInWindow] fromView:[[self window] contentView]];
     
-    [model addRectangle:rectView];
-    
+    [rectView saveTruth];
 }
 
 
@@ -81,7 +79,7 @@
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    if ([keyPath isEqual:DELETE_RECTANGLES_KEY])
+    if ([keyPath isEqual:RECTANGLES_KEY])
     {
         [self resetRectangles];
     }

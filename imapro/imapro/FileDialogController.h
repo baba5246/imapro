@@ -4,6 +4,6 @@
 @interface FileDialogController : NSObject
 
 -(IBAction)onSelectImport:(id)sender;
-//-(IBAction)onSelectExport:(id)sender;
+-(IBAction)onExportXMLButtonClicked:(id)sender;
 
 @end
