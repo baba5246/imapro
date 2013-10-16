@@ -3,7 +3,7 @@
 #define imapro_AppConstants_h
 
 #define IMAGE_PATH_KEY          @"imagePath"
-#define DELETE_RECTANGLES_KEY   @"deleteRectangles"
+#define RECTANGLES_KEY          @"rectangles"
 
 
 #endif

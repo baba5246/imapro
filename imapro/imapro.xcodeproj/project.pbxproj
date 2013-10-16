@@ -15,7 +15,8 @@
 		FEA2403A180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA24037180D669F00AF402A /* libopencv_imgproc.2.4.2.dylib */; };
 		FEA2403F180D720500AF402A /* RectView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2403E180D720500AF402A /* RectView.m */; };
 		FEA24042180D752A00AF402A /* ImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24041180D752A00AF402A /* ImgView.m */; };
-		FEA2404E180DB9CA00AF402A /* XmlController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA2404D180DB9CA00AF402A /* XmlController.m */; };
+		FEA24051180E75E000AF402A /* XmlMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24050180E75E000AF402A /* XmlMaker.m */; };
+		FEA24054180E7C7F00AF402A /* Truth.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24053180E7C7F00AF402A /* Truth.m */; };
 		FEF4F9F617B7658B00AAAC63 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF4F9F517B7658B00AAAC63 /* Cocoa.framework */; };
 		FEF4FA0017B7658B00AAAC63 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEF4F9FE17B7658B00AAAC63 /* InfoPlist.strings */; };
 		FEF4FA0217B7658B00AAAC63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF4FA0117B7658B00AAAC63 /* main.m */; };
@@ -54,8 +55,10 @@
 		FEA2403E180D720500AF402A /* RectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectView.m; sourceTree = "<group>"; };
 		FEA24040180D752A00AF402A /* ImgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgView.h; sourceTree = "<group>"; };
 		FEA24041180D752A00AF402A /* ImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgView.m; sourceTree = "<group>"; };
-		FEA2404C180DB9CA00AF402A /* XmlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlController.h; sourceTree = "<group>"; };
-		FEA2404D180DB9CA00AF402A /* XmlController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlController.m; sourceTree = "<group>"; };
+		FEA2404F180E75E000AF402A /* XmlMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlMaker.h; sourceTree = "<group>"; };
+		FEA24050180E75E000AF402A /* XmlMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlMaker.m; sourceTree = "<group>"; };
+		FEA24052180E7C7F00AF402A /* Truth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Truth.h; sourceTree = "<group>"; };
+		FEA24053180E7C7F00AF402A /* Truth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Truth.m; sourceTree = "<group>"; };
 		FEF4F9F217B7658B00AAAC63 /* imapro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imapro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF4F9F517B7658B00AAAC63 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FEF4F9F817B7658B00AAAC63 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -131,6 +134,10 @@
 				FE46B4F117B790D900828F4E /* Model.m */,
 				87346A3417D6F07A000DB403 /* Processor.h */,
 				87346A3517D6F07A000DB403 /* Processor.mm */,
+				FEA2404F180E75E000AF402A /* XmlMaker.h */,
+				FEA24050180E75E000AF402A /* XmlMaker.m */,
+				FEA24052180E7C7F00AF402A /* Truth.h */,
+				FEA24053180E7C7F00AF402A /* Truth.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -142,8 +149,6 @@
 				FEF4FA2D17B787C300AAAC63 /* Controller.mm */,
 				FE46B4F317B79D5A00828F4E /* FileDialogController.h */,
 				FE46B4F417B79D5A00828F4E /* FileDialogController.m */,
-				FEA2404C180DB9CA00AF402A /* XmlController.h */,
-				FEA2404D180DB9CA00AF402A /* XmlController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -351,7 +356,8 @@
 				87346A3617D6F07A000DB403 /* Processor.mm in Sources */,
 				FEA2403F180D720500AF402A /* RectView.m in Sources */,
 				FEA24042180D752A00AF402A /* ImgView.m in Sources */,
-				FEA2404E180DB9CA00AF402A /* XmlController.m in Sources */,
+				FEA24051180E75E000AF402A /* XmlMaker.m in Sources */,
+				FEA24054180E7C7F00AF402A /* Truth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
