@@ -9,7 +9,10 @@
 #ifdef __OBJC__
 #import <Cocoa/Cocoa.h>
 #import "AppConstants.h"
-#import "RectView.h"
+#import "Truth.h"
 #import "Model.h"
+#import "XmlMaker.h"
+#import "ImgView.h"
+#import "RectView.h"
 #endif
 

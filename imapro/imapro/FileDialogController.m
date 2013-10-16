@@ -21,12 +21,14 @@
         NSArray *parts = [filePath.path componentsSeparatedByString:@"/"];
         NSString *filename = [parts objectAtIndex:[parts count]-1];
         NSString *subpath = [filePath.path substringToIndex:filePath.path.length-filename.length];
-        [model setSubPath:subpath];
+        [model setDirectory:subpath];
        
         NSFileManager *manager = [NSFileManager defaultManager];
         NSArray *files = [manager contentsOfDirectoryAtPath:subpath error:nil];
         [model setFiles:files];
         
+        // nameを先に保存
+        [model setFilename:filename];
         [model setImagePath:filePath];
         
     }else if( pressedButton == NSCancelButton ){
@@ -35,6 +37,24 @@
      	// error
     }
 }
+
+-(IBAction)onExportXMLButtonClicked:(id)sender
+{
+    model = [Model sharedManager];
+    
+    // XML作成
+    NSString *document = [XmlMaker makeXmlDocument:[model getXMLData]];
+    
+    // データ保存
+    NSSavePanel *savePanel = [NSSavePanel savePanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"xml", nil];
+    [savePanel setAllowedFileTypes:allowedFileTypes];
+    if ([savePanel runModal] == NSOKButton) {
+        NSURL * filePath = [savePanel URL];
+        [document writeToFile:filePath.path atomically:YES encoding:4 error:NULL];
+    }
+}
+
 
 
 @end
