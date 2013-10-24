@@ -40,19 +40,25 @@
 
 -(IBAction)onExportXMLButtonClicked:(id)sender
 {
-    model = [Model sharedManager];
-    
-    // XML作成
-    NSString *document = [XmlMaker makeXmlDocument:[model getXMLData]];
-    
     // データ保存
+    NSString *oldDoc;
     NSSavePanel *savePanel = [NSSavePanel savePanel];
     NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"xml", nil];
     [savePanel setAllowedFileTypes:allowedFileTypes];
     if ([savePanel runModal] == NSOKButton) {
+        // Get Nsstring
         NSURL * filePath = [savePanel URL];
+        oldDoc = [[NSString alloc] initWithContentsOfURL:filePath encoding:NSUTF8StringEncoding error:nil];
+        
+        model = [Model sharedManager];
+        XmlMaker *xmlMaker = [[XmlMaker alloc] init];
+        [xmlMaker readXmlAndAddData:oldDoc];
+        
+        // XML作成
+        NSString *document = [XmlMaker makeXmlDocument:[model getXMLData]];
         [document writeToFile:filePath.path atomically:YES encoding:4 error:NULL];
     }
+    
 }
 
 

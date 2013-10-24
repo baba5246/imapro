@@ -108,6 +108,11 @@ static Model* sharedModel = nil;
     return xmlData;
 }
 
+- (void) addXMLData:(NSMutableArray *)data key:(NSString *)key
+{
+    [xmlData setObject:data forKey:key];
+}
+
 /* 手動で観察するための設定
  * これで戻り値が必ずNOになるようにする
  * でもなくても動くので今は置いとく（ →これないと動かなくなった at 130903
