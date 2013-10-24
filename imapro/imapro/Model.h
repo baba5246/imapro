@@ -25,6 +25,7 @@
 
 - (NSMutableArray *) getRectangles;
 - (NSMutableDictionary *) getXMLData;
+- (void) addXMLData:(NSMutableArray *)array key:(NSString *)key;
 
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey;
 

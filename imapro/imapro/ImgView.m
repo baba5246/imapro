@@ -125,7 +125,10 @@
 - (void) endEditing
 {
     rectView.truth.text = input.stringValue;
-    [rectView saveTruth];
+    CGRect option;
+    if (self.image.size.width > self.image.size.height) option = CGRectMake(0, 80, self.image.size.width, self.image.size.height);
+    else option = CGRectMake(80, 0, self.image.size.width, self.image.size.height);
+    [rectView saveTruth:option];
     
     rectView = nil;
 }

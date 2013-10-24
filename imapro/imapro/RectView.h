@@ -9,6 +9,6 @@
 
 - (id) initWithFrame:(NSRect)frameRect rectNum:(NSInteger)rectNum;
 
-- (void) saveTruth;
+- (void) saveTruth:(CGRect)option;
 
 @end
